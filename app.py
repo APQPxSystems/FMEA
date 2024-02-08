@@ -1,6 +1,6 @@
 fmea_date = "February 01, 2024"
 fmea_maker_model = "Daiatsu D54B"
-fmea_line = "3144"
+fmea_line = "Line 3144"
 fmea_time = "8:00-9:15"
 
 npra_date = "February 03, 2024"
