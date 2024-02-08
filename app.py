@@ -7,7 +7,7 @@ from datetime import datetime, timedelta, date
 st.title("WELCOME TO FMEA ONLINE!")
 
 # Read FMEA PDCA Excel File
-fmea_pdca = pd.read_csv("FMEA PDCA\FMEA_PDCA.csv", encoding="ISO-8859-1")
+fmea_pdca = pd.read_csv("FMEA_PDCA.csv", encoding="ISO-8859-1")
 
 # Drop Unnecessary Columns
 fmea_pdca = fmea_pdca[["Car Maker", "Car Model", "Line", "Findings",
