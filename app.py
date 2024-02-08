@@ -16,6 +16,17 @@ import pandas as pd
 import altair as alt
 from datetime import datetime, timedelta, date
 
+# Streamlit Configurations
+st.set_page_config(page_title="ME Dept Apps", layout="wide")
+hide_st_style = """
+                <style>
+                #MainMenu {visibility:hidden;}
+                footer {visibility:hidden;}
+                header {visibility:hidden;}
+                </style>
+                """
+#st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # Landing Page
 st.title("WELCOME TO FMEA ONLINE!")
 
@@ -107,7 +118,7 @@ if department != "___________________________":
     ]
 
     # Display count of delayed items
-    st.title(f"{len(df_delayed_items)} OPEN Item/s are DELAYED!")
+    st.subheader(f"{len(df_delayed_items)} OPEN Item/s are DELAYED!")
     
     df_final_filter_styled = line_cm_dept_fmea_pdca.style.apply(
         lambda row: ['background-color: red' if row['Status'] == 'OPEN'
