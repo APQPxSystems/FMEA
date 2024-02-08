@@ -1,3 +1,16 @@
+fmea_date = "February 01, 2024"
+fmea_maker_model = "Daiatsu D54B"
+fmea_line = "3144"
+fmea_time = "8:00-9:15"
+
+npra_date = "February 03, 2024"
+npra_maker_model = "Toyota Land Cruiser"
+npra_line = "Land Cruiser Event Area"
+npra_time = "10:00 - 12:00"
+#_______________________________________________________________________________
+
+# Start of Source Code. Do Not Touch!
+
 import streamlit as st
 import pandas as pd
 import altair as alt
@@ -6,8 +19,27 @@ from datetime import datetime, timedelta, date
 # Landing Page
 st.title("WELCOME TO FMEA ONLINE!")
 
+st.subheader("Upcoming Line Checking Schedule:")
+top_col1, top_col2 = st.columns([1,1])
+
+with top_col1:
+    st.subheader("FMEA Line Checking:")
+    st.write(fmea_date)
+    st.write(fmea_maker_model)
+    st.write(fmea_line)
+    st.write(fmea_time)
+    
+with top_col2:
+    st.subheader("NPRA Checking")
+    st.write(npra_date)
+    st.write(npra_maker_model)
+    st.write(npra_line)
+    st.write(npra_time)
+    
+st.write("_________________________________________________________")
+
 # Read FMEA PDCA Excel File
-fmea_pdca = pd.read_csv("FMEA_PDCA.csv", encoding="ISO-8859-1")
+fmea_pdca = pd.read_csv("FMEA PDCA\FMEA_PDCA.csv", encoding="ISO-8859-1")
 
 # Drop Unnecessary Columns
 fmea_pdca = fmea_pdca[["Car Maker", "Car Model", "Line", "Findings",
@@ -100,3 +132,4 @@ if department != "___________________________":
         file_name=f"Line {line} FMEA PDCA OPEN Items - {department}.csv",
         mime="text/csv"
     )
+    
