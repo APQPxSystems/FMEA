@@ -17,7 +17,7 @@ import altair as alt
 from datetime import datetime, timedelta, date
 
 # Streamlit Configurations
-st.set_page_config(page_title="ME Dept Apps", layout="wide")
+st.set_page_config(page_title="Apps by Systems Eng", layout="wide")
 hide_st_style = """
                 <style>
                 #MainMenu {visibility:hidden;}
