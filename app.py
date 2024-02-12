@@ -1,3 +1,8 @@
+# FMEA PDCA Viewer
+# Katigbak, Kent Jym B. --- Staff
+# Systems Engineering
+#______________________________________________________________________________
+# Editable Content
 fmea_date = "February 01, 2024"
 fmea_maker_model = "Daiatsu D54B"
 fmea_line = "Line 3144"
@@ -9,7 +14,7 @@ npra_line = "Land Cruiser Event Area"
 npra_time = "10:00 - 12:00"
 #_______________________________________________________________________________
 
-# Start of Source Code. Do Not Touch!
+# Start of Source Code. Do Not Edit!
 
 import streamlit as st
 import pandas as pd
