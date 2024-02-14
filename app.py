@@ -72,7 +72,7 @@ fmea_pdca["Line"] = fmea_pdca["Line"].astype(str)
 # Convert Target Date to Datetime
 fmea_pdca["Target Date"] = pd.to_datetime(fmea_pdca["Target Date"], errors="coerce")
 
-# department_options = ["___________________________"] + list(fmea_pdca["Department"].unique())
+department_options = list(fmea_pdca["Department"].unique())
 
 department_selection_container = st.container(border=True)
 with department_selection_container:
