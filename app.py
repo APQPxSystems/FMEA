@@ -4,7 +4,7 @@
 #______________________________________________________________________________
 # Editable Content
 fmea_date = "February 01, 2024"
-fmea_maker_model = "Daiatsu D54B"
+fmea_maker_model = "Daihatsu D54B"
 fmea_line = "Line 3144"
 fmea_time = "8:00-9:15"
 
