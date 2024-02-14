@@ -81,7 +81,7 @@ with department_selection_container:
 first_part_container = st.container(border=True)
 with first_part_container:
     if department = "___________________________":
-        pass
+      pass
     else:
         # First Part -- General
         st.title(f"Here's the FMEA Dashboard for {department}")
