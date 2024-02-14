@@ -33,9 +33,9 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Landing Page
-st.title("WELCOME TO FMEA ONLINE!")
+st.markdown("<h1 style='text-align:center; background-color:green'>WELCOME TO FMEA ONLINE!</h1>", unsafe_allow_html=True)
 
-st.subheader("Upcoming Line Checking Schedule:")
+st.markdown("<h3 style='text-align:center';>Upcoming Line Checking Schedule:</h3>", unsafe_allow_html=True)
 top_col1, top_col2 = st.columns([1,1])
 
 with top_col1:
