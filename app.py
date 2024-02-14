@@ -33,26 +33,30 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Landing Page
-st.markdown("<h1 style='text-align:center; background-color:green'>WELCOME TO FMEA ONLINE!</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center; background-color:#1e6262;'>WELCOME TO FMEA ONLINE!</h1>", unsafe_allow_html=True)
 
-st.markdown("<h3 style='text-align:center';>Upcoming Line Checking Schedule:</h3>", unsafe_allow_html=True)
-top_col1, top_col2 = st.columns([1,1])
+schedule_container = st.container(border=True)
+with schedule_container:
+    st.markdown("<h3 style='text-align:center';><u>Upcoming Line Checking Schedule:</u></h3>", unsafe_allow_html=True)
+    top_col1, top_col2 = st.columns([1,1])
 
-with top_col1:
-    st.subheader("FMEA Line Checking:")
-    st.write(fmea_date)
-    st.write(fmea_maker_model)
-    st.write(fmea_line)
-    st.write(fmea_time)
-    
-with top_col2:
-    st.subheader("NPRA Checking")
-    st.write(npra_date)
-    st.write(npra_maker_model)
-    st.write(npra_line)
-    st.write(npra_time)
-    
-st.write("_________________________________________________________")
+    with top_col1:
+        fmea_schedule_container = st.container(border=True)
+        with fmea_schedule_container:
+            st.subheader("FMEA Line Checking:")
+            st.write(fmea_date)
+            st.write(fmea_maker_model)
+            st.write(fmea_line)
+            st.write(fmea_time)
+        
+    with top_col2:
+        npra_schedule_container = st.container(border=True)
+        with npra_schedule_container:
+            st.subheader("NPRA Checking")
+            st.write(npra_date)
+            st.write(npra_maker_model)
+            st.write(npra_line)
+            st.write(npra_time)
 
 # Read FMEA PDCA Excel File
 fmea_pdca = pd.read_csv("FMEA_PDCA.csv", encoding="ISO-8859-1")
@@ -69,34 +73,41 @@ fmea_pdca["Line"] = fmea_pdca["Line"].astype(str)
 fmea_pdca["Target Date"] = pd.to_datetime(fmea_pdca["Target Date"], errors="coerce")
 
 department_options = ["___________________________"] + list(fmea_pdca["Department"].unique())
-department = st.selectbox("Please select your department:", department_options)
-st.write("_________________________________________________________")
 
-if department != "___________________________":
-    # First Part -- General
-    st.title(f"Here's the FMEA Dashboard for {department}")
+department_selection_container = st.container(border=True)
+with department_selection_container:
+    department = st.selectbox("Please select your department:", department_options)
+
+first_part_container = st.container(border=True)
+with first_part_container:
+    if department != "___________________________":
+        # First Part -- General
+        st.title(f"Here's the FMEA Dashboard for {department}")
+        
+        department_fmea_pdca = fmea_pdca[fmea_pdca["Department"].isin([department])]
+        
+        # First Chart --- Open and Close Items per Car Maker
+        open_count = len(department_fmea_pdca[department_fmea_pdca["Status"]== "OPEN"])
+        st.subheader(f"You have {open_count} OPEN items in total!")
+        first_chart = alt.Chart(department_fmea_pdca).mark_bar().encode(
+            x=alt.X('Car Maker:N', title='Car Maker'),
+            y=alt.Y('count():Q', title='Count'),
+            color='Status:N'
+        ).properties(
+            title = f"{department} Status of Items per Car Maker"
+        )
+        st.altair_chart(first_chart, use_container_width=True)
     
-    department_fmea_pdca = fmea_pdca[fmea_pdca["Department"].isin([department])]
-    
-    # First Chart --- Open and Close Items per Car Maker
-    open_count = len(department_fmea_pdca[department_fmea_pdca["Status"]== "OPEN"])
-    st.subheader(f"You have {open_count} OPEN items in total!")
-    first_chart = alt.Chart(department_fmea_pdca).mark_bar().encode(
-        x=alt.X('Car Maker:N', title='Car Maker'),
-        y=alt.Y('count():Q', title='Count'),
-        color='Status:N'
-    ).properties(
-        title = f"{department} Status of Items per Car Maker"
-    )
-    st.altair_chart(first_chart, use_container_width=True)
-    st.write("_________________________________________________________")
-    
+car_maker_container = st.container(border=True)
+with car_maker_container:
     # Second Part -- Filter by Car Maker
     car_maker = st.selectbox("Select a car maker:", department_fmea_pdca["Car Maker"].unique())
     
     # Filter by Car Maker
     car_maker_department_fmea_pdca = department_fmea_pdca[department_fmea_pdca["Car Maker"].isin([car_maker])]
     
+second_part_container = st.container(border=True)
+with second_part_container:
     # Second Chart --- Status of Each Department per Line
     open_count_2 = len(car_maker_department_fmea_pdca[car_maker_department_fmea_pdca["Status"]== "OPEN"])
     st.subheader(f"You have {open_count_2} OPEN items in {car_maker}!")
@@ -107,9 +118,10 @@ if department != "___________________________":
     ).properties(
         title = f"{department} Status of Items per Line in {car_maker}"
     )
-    st.altair_chart(second_chart, use_container_width=True)    
-    st.write("_________________________________________________________")
+    st.altair_chart(second_chart, use_container_width=True)
     
+third_part_container = st.container(border=True)
+with third_part_container:
     # Third Part --- Filter by Line
     line = st.selectbox("Select line:", car_maker_department_fmea_pdca["Line"].unique())
     
