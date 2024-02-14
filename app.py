@@ -33,11 +33,11 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Landing Page
-st.markdown("<h1 style='text-align:center; background-color:#1e6262;'>WELCOME TO FMEA ONLINE!</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align:center; background-color:#1e6262;'>WELCOME TO FMEA ONLINE!</h2>", unsafe_allow_html=True)
 
 schedule_container = st.container(border=True)
 with schedule_container:
-    st.markdown("<h3 style='text-align:center';><u>Upcoming Line Checking Schedule:</u></h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align:center';><u>FMEA Checking Schedule:</u></h3>", unsafe_allow_html=True)
     top_col1, top_col2 = st.columns([1,1])
 
     with top_col1:
