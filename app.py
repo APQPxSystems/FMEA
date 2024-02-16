@@ -164,5 +164,5 @@ with third_part_container:
 
 
 
-st.markdown("<h6 style='font-family: Georgia, serif; text-align: right'>SYSTEMS ENGINEERING || ME DEPARTMENT</h6>", unsafe_allow_html=True)
+st.markdown("<p style='font-family: Georgia, serif; text-align: right'>SYSTEMS ENGINEERING || ME DEPARTMENT</p>", unsafe_allow_html=True)
     
