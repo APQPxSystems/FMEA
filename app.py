@@ -145,7 +145,7 @@ with third_part_container:
     )
 
     # Display the DataFrame with Styler
-    st.dataframe(df_final_filter_styled)
+    st.dataframe(df_final_filter_styled.style.hide(axis="index")
     
     # Download Button for Final Generated PDCA
     @st.cache_data
