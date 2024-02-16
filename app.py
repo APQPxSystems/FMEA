@@ -33,7 +33,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Landing Page
-st.markdown("<h2 style='text-align:center; background-color:#1e6262;'>WELCOME TO FMEA ONLINE!</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align:center; background-color:#1e6262; font-family: Arial, sans-serif;'>WELCOME TO FMEA ONLINE!</h2>", unsafe_allow_html=True)
 
 schedule_container = st.container(border=True)
 with schedule_container:
