@@ -37,7 +37,7 @@ st.markdown("<h2 style='text-align:center; background-color:#1e6262; font-family
 
 schedule_container = st.container(border=True)
 with schedule_container:
-    st.markdown("<h3 style='text-align:center';><u>FMEA Checking Schedule:</u></h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align:center; font-family: Arial, sans-serif;'><u>FMEA Checking Schedule:</u></h3>", unsafe_allow_html=True)
     top_col1, top_col2 = st.columns([1,1])
 
     with top_col1:
