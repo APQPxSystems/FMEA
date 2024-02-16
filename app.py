@@ -43,11 +43,12 @@ with schedule_container:
     with top_col1:
         fmea_schedule_container = st.container(border=True)
         with fmea_schedule_container:
+          st.info(
             st.subheader("FMEA Line Checking:")
             st.write(fmea_date)
             st.write(fmea_maker_model)
             st.write(fmea_line)
-            st.write(fmea_time)
+            st.write(fmea_time))
         
     with top_col2:
         npra_schedule_container = st.container(border=True)
