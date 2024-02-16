@@ -164,5 +164,5 @@ with third_part_container:
 
 
 st.write("_____________________________________________________________")
-st.markdown("<p style='font-family: Georgia, serif; text-align: right'>SYSTEMS ENG'G || ME DEPARTMENT</p>", unsafe_allow_html=True)
+st.markdown("<p style='font-family: Georgia, serif; text-align: right'>SYSTEMS ENG'G || ME DEPT</p>", unsafe_allow_html=True)
     
