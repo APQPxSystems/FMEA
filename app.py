@@ -163,7 +163,11 @@ if app_key == "FMEA-SE24":
           mime="text/csv"
       )
 
+elif app_key == None:
+  st.write("You haven't entered the app key")
 
+else:
+  st.write("Incorrect app key")
 
 st.write("_____________________________________________________________")
 st.markdown("<p style='font-family: Georgia, serif; text-align: right'>SYSTEMS ENG'G || ME DEPT</p>", unsafe_allow_html=True)
