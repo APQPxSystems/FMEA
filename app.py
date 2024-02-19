@@ -163,7 +163,7 @@ if app_key == "FMEA-SE24":
           mime="text/csv"
       )
 
-elif app_key == None:
+elif app_key = None:
   st.write("You haven't entered the app key")
 
 else:
