@@ -35,28 +35,26 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 # Landing Page
 st.markdown("<h2 style='text-align:center; background-color:#1e6262; font-family: Arial, sans-serif;'>WELCOME TO FMEA ONLINE!</h2>", unsafe_allow_html=True)
 
-schedule_container = st.container(border=True)
-with schedule_container:
-    st.markdown("<h3 style='text-align:center; font-family: Arial, sans-serif;'><u>FMEA Checking Schedule:</u></h3>", unsafe_allow_html=True)
-    top_col1, top_col2 = st.columns([1,1])
+st.markdown("<h3 style='text-align:center; font-family: Arial, sans-serif;'><u>FMEA Checking Schedule:</u></h3>", unsafe_allow_html=True)
+top_col1, top_col2 = st.columns([1,1])
 
-    with top_col1:
-        fmea_schedule_container = st.container(border=True)
-        with fmea_schedule_container:
-            st.subheader("FMEA Line Checking:")
-            st.write(fmea_date)
-            st.write(fmea_maker_model)
-            st.write(fmea_line)
-            st.write(fmea_time)
+with top_col1:
+    fmea_schedule_container = st.container(border=True)
+    with fmea_schedule_container:
+        st.subheader("FMEA Line Checking:")
+        st.write(fmea_date)
+        st.write(fmea_maker_model)
+        st.write(fmea_line)
+        st.write(fmea_time)
         
-    with top_col2:
-        npra_schedule_container = st.container(border=True)
-        with npra_schedule_container:
-            st.subheader("NPRA Checking")
-            st.write(npra_date)
-            st.write(npra_maker_model)
-            st.write(npra_line)
-            st.write(npra_time)
+with top_col2:
+    npra_schedule_container = st.container(border=True)
+    with npra_schedule_container:
+        st.subheader("NPRA Checking")
+        st.write(npra_date)
+        st.write(npra_maker_model)
+        st.write(npra_line)
+        st.write(npra_time)
 
 # Read FMEA PDCA Excel File
 fmea_pdca = pd.read_csv("FMEA_PDCA.csv", encoding="ISO-8859-1")
