@@ -3,15 +3,15 @@
 # Systems Engineering
 #______________________________________________________________________________
 # Editable Content
-fmea_date = "February 01, 2024"
-fmea_maker_model = "Daihatsu D54B"
-fmea_line = "Line 3144"
-fmea_time = "8:00-9:15"
+fmea_date = "March 15, 2024"
+fmea_maker_model = "Suzuki XF273"
+fmea_line = "Line 5015"
+fmea_time = "10:30 AM"
 
-npra_date = "February 03, 2024"
-npra_maker_model = "Toyota Land Cruiser"
-npra_line = "Land Cruiser Event Area"
-npra_time = "10:00 - 12:00"
+npra_date = "TBA"
+npra_maker_model = "TBA"
+npra_line = "TBA"
+npra_time = "TBA"
 #_______________________________________________________________________________
 
 # Start of Source Code. Do Not Edit!
